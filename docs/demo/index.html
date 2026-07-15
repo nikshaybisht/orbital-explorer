@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orbital Explorer demo</title>
+  <meta name="description" content="3D atomic and molecular orbitals for undergrad MO theory." />
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #0b0e17; color: #e8edf6; line-height: 1.5; }
+    a { color: #5aa0ff; }
+    header { padding: 2rem 1.25rem 1rem; max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 0.4rem; font-size: 2rem; }
+    .muted { color: #9aa6bd; }
+    main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+    .card { background: #121726; border: 1px solid #2a3447; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    img, video { max-width: 100%; border-radius: 8px; display: block; }
+    .row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .btn { display: inline-block; background: #5aa0ff; color: #04101f; text-decoration: none;
+           font-weight: 600; padding: 0.55rem 1rem; border-radius: 8px; margin: 0.3rem 0.4rem 0.3rem 0; }
+    .btn.secondary { background: transparent; color: #5aa0ff; border: 1px solid #5aa0ff; }
+    footer { max-width: 960px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #9aa6bd; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Orbital Explorer</h1>
+    <p class="muted">Undergrad MO theory, visual: AOs, Huckel, diatomics.</p>
+    <p>
+      <a class="btn" href="https://github.com/nikshaybisht/orbital-explorer">GitHub</a>
+      <a class="btn secondary" href="https://github.com/nikshaybisht/orbital-explorer/releases/tag/v0.1.0">v0.1.0</a>
+      <a class="btn secondary" href="atomic_2pz.html">Interactive 2p<sub>z</sub></a>
+    </p>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Quick tour</h2>
+      <p class="muted">Atomic orbitals, then benzene HOMO, then O2 (paramagnetic).</p>
+      <img src="../images/demo.gif" alt="Demo tour: atomic orbitals, benzene HOMO, O2 MO diagram" />
+    </div>
+    <div class="row">
+      <div class="card">
+        <h3>Benzene HOMO</h3>
+        <img src="../images/mo_3d_benzene.png" alt="Benzene HOMO 3D orbital sharing" />
+        <p class="muted">Huckel LCAO: p orbitals sharing on the ring.</p>
+      </div>
+      <div class="card">
+        <h3>O2 MO diagram</h3>
+        <img src="../images/diatomic_o2.png" alt="O2 diatomic molecular orbital diagram" />
+        <p class="muted">Bond order 2, two unpaired electrons, paramagnetic.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Run the full app</h2>
+      <pre style="background:#0b0e17;padding:1rem;border-radius:8px;overflow:auto">pip install -r requirements.txt
+python run_app.py
+# or
+streamlit run streamlit_app.py</pre>
+      <p class="muted">Dash on port 8050, or Streamlit if you prefer that UI.</p>
+    </div>
+  </main>
+  <footer>
+    MIT · Nikshay Bisht · Huckel / hydrogenic teaching models, not production QC.
+  </footer>
+</body>
+</html>

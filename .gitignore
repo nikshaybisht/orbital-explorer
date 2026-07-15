@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Env / secrets
+.env
+.env.*
+
+# Packaging
+*.whl
+
+# Generated interactive figures / demo output (large, regenerable)
+examples/output/
+
+# OPSIN/py2opsin scratch file
+py2opsin_temp_input.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

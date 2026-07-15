@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbital-explorer"
+version = "0.1.0"
+description = "3D atomic and molecular orbitals for undergrad MO theory (hydrogenic AOs, Huckel, diatomics)."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<3.14"
+authors = [{ name = "Nikshay Bisht" }]
+keywords = [
+  "chemistry",
+  "orbitals",
+  "huckel",
+  "quantum",
+  "education",
+  "dash",
+  "visualization",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Education",
+]
+dependencies = [
+  "numpy>=1.26,<3",
+  "scipy>=1.11,<2",
+  "scikit-image>=0.22,<0.27",
+  "matplotlib>=3.8,<4",
+  "rdkit>=2024.3.1",
+  "plotly>=5.18,<7",
+  "dash>=2.17,<3",
+  "requests>=2.31,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+]
+deploy = [
+  "gunicorn>=22,<27",
+]
+cloud = [
+  "streamlit>=1.28,<2",
+]
+all = [
+  "pytest>=8,<10",
+  "gunicorn>=22,<27",
+  "streamlit>=1.28,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/nikshaybisht/orbital-explorer"
+Repository = "https://github.com/nikshaybisht/orbital-explorer"
+Issues = "https://github.com/nikshaybisht/orbital-explorer/issues"
+Changelog = "https://github.com/nikshaybisht/orbital-explorer/releases"
+
+[project.scripts]
+orbital-explorer = "orbital_explorer.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

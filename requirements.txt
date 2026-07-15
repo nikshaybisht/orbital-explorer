@@ -1,0 +1,24 @@
+# Runtime dependencies for Orbital Explorer v0.1.0
+# Prefer:  pip install -e ".[all]"
+# Or:      pip install -r requirements.txt
+#
+# Pins use compatible ranges so pip can resolve wheels on Windows/macOS/Linux.
+# RDKit has binary wheels on PyPI for CPython 3.11-3.13 (conda not required).
+
+numpy>=1.26,<3
+scipy>=1.11,<2
+scikit-image>=0.22,<0.27
+matplotlib>=3.8,<4
+rdkit>=2024.3.1
+plotly>=5.18,<7
+dash>=2.17,<3
+requests>=2.31,<3
+
+# Tests (Day-1 plan: pytest installable from requirements)
+pytest>=8,<10
+
+# Production WSGI server (Docker / Render / Railway)
+gunicorn>=22,<27
+
+# Free public host path (Streamlit Community Cloud reads this file)
+streamlit>=1.28,<2

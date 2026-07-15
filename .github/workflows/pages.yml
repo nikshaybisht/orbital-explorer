@@ -1,0 +1,57 @@
+name: Deploy demo site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          pip install -e ".[dev]"
+          pip install pillow
+
+      - name: Build demo media + Pages bundle
+        run: |
+          python docs/build_demo_media.py
+          mkdir -p _site/images _site
+          cp docs/demo/index.html _site/index.html
+          cp docs/demo/atomic_2pz.html _site/atomic_2pz.html
+          cp docs/images/*.png _site/images/
+          cp docs/images/demo.gif _site/images/
+          # Fix relative image paths for Pages root (images/ not ../images/)
+          sed -i 's|src="../images/|src="images/|g' _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
