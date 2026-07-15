@@ -3,6 +3,22 @@
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] (2026-07-16)
+
+### Demo / docs
+
+- Expanded GitHub Pages gallery: multiple interactive atomic orbitals (2pz, 2px, 3dz2, 3dxy, 4fxyz)
+- Interactive benzene HOMO HTML when RDKit is available in the build
+- Dark chrome headers on Plotly demo pages with back-link to home
+- Open Graph / Twitter meta tags on the demo landing page
+- Streamlit Cloud hints: `packages.txt`, `runtime.txt` (Python 3.12)
+- Issue templates for bugs and feature ideas
+
+### Fixed / polished
+
+- Pages deploy copies all `docs/demo/*.html` files
+- Version bump to 0.1.1 across package metadata and Streamlit footer
+
 ## [0.1.0] (2026-07-15)
 
 First public freeze.
@@ -26,4 +42,5 @@ First public freeze.
 - Qualitative diatomic MO diagrams (H-Ne, H-X) with s-p mixing and correct O2 paramagnetism
 - Name / SMILES resolution (including PubChem when online)
 
+[0.1.1]: https://github.com/nikshaybisht/orbital-explorer/releases/tag/v0.1.1
 [0.1.0]: https://github.com/nikshaybisht/orbital-explorer/releases/tag/v0.1.0

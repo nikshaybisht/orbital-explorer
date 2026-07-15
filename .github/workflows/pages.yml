@@ -34,13 +34,13 @@ jobs:
       - name: Build demo media + Pages bundle
         run: |
           python docs/build_demo_media.py
-          mkdir -p _site/images _site
-          cp docs/demo/index.html _site/index.html
-          cp docs/demo/atomic_2pz.html _site/atomic_2pz.html
+          mkdir -p _site/images
+          cp docs/demo/*.html _site/
           cp docs/images/*.png _site/images/
-          cp docs/images/demo.gif _site/images/
+          if [ -f docs/images/demo.gif ]; then cp docs/images/demo.gif _site/images/; fi
           # Fix relative image paths for Pages root (images/ not ../images/)
           sed -i 's|src="../images/|src="images/|g' _site/index.html
+          ls -la _site _site/images
 
       - uses: actions/upload-pages-artifact@v3
         with:

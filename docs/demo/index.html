@@ -3,41 +3,87 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Orbital Explorer demo</title>
-  <meta name="description" content="3D atomic and molecular orbitals for undergrad MO theory." />
+  <title>Orbital Explorer · demo</title>
+  <meta name="description" content="Interactive 3D atomic and molecular orbitals for undergrad MO theory. Free open-source teaching tool." />
+  <meta property="og:title" content="Orbital Explorer" />
+  <meta property="og:description" content="3D AOs, Huckel pi MOs, diatomic diagrams for MO theory revision." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nikshaybisht.github.io/orbital-explorer/" />
+  <meta property="og:image" content="https://nikshaybisht.github.io/orbital-explorer/images/atomic_orbitals.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://nikshaybisht.github.io/orbital-explorer/" />
   <style>
     :root { color-scheme: dark; }
-    body { margin: 0; font-family: system-ui, sans-serif; background: #0b0e17; color: #e8edf6; line-height: 1.5; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #0b0e17; color: #e8edf6; line-height: 1.55; }
     a { color: #5aa0ff; }
-    header { padding: 2rem 1.25rem 1rem; max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.4rem; font-size: 2rem; }
+    header { padding: 2rem 1.25rem 1rem; max-width: 980px; margin: 0 auto; }
+    h1 { margin: 0 0 0.4rem; font-size: 2rem; letter-spacing: -0.02em; }
     .muted { color: #9aa6bd; }
-    main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem 3rem; }
-    .card { background: #121726; border: 1px solid #2a3447; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    main { max-width: 980px; margin: 0 auto; padding: 0 1.25rem 3rem; }
+    .card { background: #121726; border: 1px solid #2a3447; border-radius: 12px; padding: 1rem 1.1rem; margin: 1rem 0; }
     img, video { max-width: 100%; border-radius: 8px; display: block; }
     .row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .tiles { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .tile { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.9rem 1rem;
+            background: #0b0e17; border: 1px solid #2a3447; border-radius: 10px;
+            text-decoration: none; color: inherit; transition: border-color 0.15s, transform 0.15s; }
+    .tile:hover { border-color: #5aa0ff; transform: translateY(-1px); }
+    .tile.highlight { border-color: #5aa0ff55; }
+    .tile strong { color: #e8edf6; }
     .btn { display: inline-block; background: #5aa0ff; color: #04101f; text-decoration: none;
            font-weight: 600; padding: 0.55rem 1rem; border-radius: 8px; margin: 0.3rem 0.4rem 0.3rem 0; }
     .btn.secondary { background: transparent; color: #5aa0ff; border: 1px solid #5aa0ff; }
-    footer { max-width: 960px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #9aa6bd; font-size: 0.9rem; }
+    footer { max-width: 980px; margin: 0 auto; padding: 1rem 1.25rem 2rem; color: #9aa6bd; font-size: 0.9rem; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88rem; }
+    pre { background: #0b0e17; padding: 1rem; border-radius: 8px; overflow: auto; border: 1px solid #2a3447; }
+    h2 { margin: 0.2rem 0 0.75rem; font-size: 1.2rem; }
   </style>
 </head>
 <body>
   <header>
     <h1>Orbital Explorer</h1>
-    <p class="muted">Undergrad MO theory, visual: AOs, Huckel, diatomics.</p>
+    <p class="muted">Undergrad MO theory, visual: hydrogenic AOs, Huckel pi systems, diatomic diagrams.</p>
     <p>
       <a class="btn" href="https://github.com/nikshaybisht/orbital-explorer">GitHub</a>
-      <a class="btn secondary" href="https://github.com/nikshaybisht/orbital-explorer/releases/tag/v0.1.0">v0.1.0</a>
-      <a class="btn secondary" href="atomic_2pz.html">Interactive 2p<sub>z</sub></a>
+      <a class="btn secondary" href="https://github.com/nikshaybisht/orbital-explorer/releases/tag/v0.1.1">v0.1.1</a>
+      <a class="btn secondary" href="https://github.com/nikshaybisht/orbital-explorer#install">Install</a>
     </p>
   </header>
   <main>
     <div class="card">
-      <h2>Quick tour</h2>
-      <p class="muted">Atomic orbitals, then benzene HOMO, then O2 (paramagnetic).</p>
-      <img src="../images/demo.gif" alt="Demo tour: atomic orbitals, benzene HOMO, O2 MO diagram" />
+      <h2>Interactive gallery (no install)</h2>
+      <p class="muted">Rotate in the browser. Full molecule solver still needs the local or Streamlit app.</p>
+      <div class="tiles">
+      <a class="tile" href="atomic_2pz.html">
+        <strong>2pz</strong>
+        <span class="muted">Classic dumbbell. Phase (blue/gold) is what bonds or cancels.</span>
+      </a>
+      <a class="tile" href="atomic_2px.html">
+        <strong>2px</strong>
+        <span class="muted">Same shape as 2pz, rotated onto x.</span>
+      </a>
+      <a class="tile" href="atomic_3dz2.html">
+        <strong>3dz2</strong>
+        <span class="muted">d-orbital with a doughnut; two nodes around the axis.</span>
+      </a>
+      <a class="tile" href="atomic_3dxy.html">
+        <strong>3dxy</strong>
+        <span class="muted">Four lobes in the xy plane.</span>
+      </a>
+      <a class="tile" href="atomic_4fxyz.html">
+        <strong>4fxyz</strong>
+        <span class="muted">f-orbital example for higher n.</span>
+      </a>
+
+      </div>
     </div>
+
+    <div class="card">
+      <h2>Quick tour</h2>
+      <p class="muted">Atomic orbitals → benzene HOMO → O2 (paramagnetic).</p>
+      <img src="../images/demo.gif" alt="Demo tour: atomic orbitals, benzene HOMO, O2 MO diagram" width="960" height="540" />
+    </div>
+
     <div class="row">
       <div class="card">
         <h3>Benzene HOMO</h3>
@@ -50,17 +96,32 @@
         <p class="muted">Bond order 2, two unpaired electrons, paramagnetic.</p>
       </div>
     </div>
+
     <div class="card">
       <h2>Run the full app</h2>
-      <pre style="background:#0b0e17;padding:1rem;border-radius:8px;overflow:auto">pip install -r requirements.txt
+      <pre>git clone https://github.com/nikshaybisht/orbital-explorer.git
+cd orbital-explorer
+pip install -e ".[all]"
 python run_app.py
-# or
-streamlit run streamlit_app.py</pre>
-      <p class="muted">Dash on port 8050, or Streamlit if you prefer that UI.</p>
+# or: streamlit run streamlit_app.py</pre>
+      <p class="muted">
+        Dash on port 8050 · Streamlit for free cloud hosts ·
+        <a href="https://github.com/nikshaybisht/orbital-explorer#docker">Docker</a> ·
+        <a href="https://render.com/deploy?repo=https://github.com/nikshaybisht/orbital-explorer">Render</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What this is</h2>
+      <p class="muted">
+        Teaching tool: exact hydrogenic wavefunctions, qualitative Huckel and diatomic MO diagrams.
+        Not Gaussian / ORCA. Honest scope, 39 chemistry unit tests, CI on Ubuntu and Windows.
+      </p>
     </div>
   </main>
   <footer>
-    MIT · Nikshay Bisht · Huckel / hydrogenic teaching models, not production QC.
+    MIT · Nikshay Bisht ·
+    <a href="https://github.com/nikshaybisht/orbital-explorer">source</a>
   </footer>
 </body>
 </html>

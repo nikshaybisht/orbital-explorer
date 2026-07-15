@@ -17,13 +17,15 @@
 
 | How | Link |
 |-----|------|
-| **Demo site** | https://nikshaybisht.github.io/orbital-explorer/ |
+| **Demo site (gallery)** | https://nikshaybisht.github.io/orbital-explorer/ |
 | **Interactive 2p_z** | https://nikshaybisht.github.io/orbital-explorer/atomic_2pz.html |
+| **Interactive 3d_z2** | https://nikshaybisht.github.io/orbital-explorer/atomic_3dz2.html |
+| **Benzene HOMO (3D)** | https://nikshaybisht.github.io/orbital-explorer/mo_benzene_homo.html |
 | **Run locally (Dash)** | `pip install -r requirements.txt` then `python run_app.py` → http://127.0.0.1:8050 |
 | **Run locally (Streamlit)** | `streamlit run streamlit_app.py` |
 | **Docker** | `docker build -t orbital-explorer . && docker run --rm -p 8050:8050 orbital-explorer` |
 
-Optional hosted app: [Render](https://render.com/deploy?repo=https://github.com/nikshaybisht/orbital-explorer) or [Streamlit Cloud](https://share.streamlit.io) pointing at `streamlit_app.py`.
+**Free cloud (full app):** deploy on [Streamlit Community Cloud](https://share.streamlit.io) with main file `streamlit_app.py` (uses root `requirements.txt` + `runtime.txt`). Or one-click [Render](https://render.com/deploy?repo=https://github.com/nikshaybisht/orbital-explorer) for the Dash app.
 
 ![Demo tour](docs/images/demo.gif)
 
@@ -166,10 +168,11 @@ docs/make_figures.py   rebuilds README images
 
 | Tag | Notes |
 |-----|-------|
+| **v0.1.1** | Expanded interactive demo gallery + Streamlit Cloud hints |
 | **v0.1.0** | First public freeze (license, packaging, CI, Docker, demo site) |
 
 ```bash
-git checkout v0.1.0
+git checkout v0.1.1
 ```
 
 See [CHANGELOG.md](CHANGELOG.md) and [Releases](https://github.com/nikshaybisht/orbital-explorer/releases).
@@ -180,7 +183,9 @@ See [CHANGELOG.md](CHANGELOG.md) and [Releases](https://github.com/nikshaybisht/
 
 ## If you teach with this
 
-Pin `v0.1.0` in your handout so the demo does not move under you. Open an issue if a molecule classifies badly or a diagram disagrees with your notes.
+Pin a release tag (`v0.1.1`) in your handout so the demo does not move under you. Open an issue if a molecule classifies badly or a diagram disagrees with your notes.
+
+Static interactive pages (no install for students): the [demo gallery](https://nikshaybisht.github.io/orbital-explorer/) has several pre-rendered orbitals they can rotate in the browser.
 
 ## Stack
 

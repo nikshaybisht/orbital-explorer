@@ -39,6 +39,14 @@ st.set_page_config(
     page_icon="⚛️",
     layout="wide",
     initial_sidebar_state="expanded",
+    menu_items={
+        "Get help": "https://github.com/nikshaybisht/orbital-explorer#install",
+        "Report a bug": "https://github.com/nikshaybisht/orbital-explorer/issues",
+        "About": (
+            "Orbital Explorer v0.1.1 — teaching tool for undergrad MO theory. "
+            "Hydrogenic AOs, Huckel pi MOs, diatomic diagrams. MIT License."
+        ),
+    },
 )
 
 _CSS = """
@@ -189,7 +197,8 @@ def main() -> None:
     st.divider()
     st.caption(
         "Source: [github.com/nikshaybisht/orbital-explorer](https://github.com/nikshaybisht/orbital-explorer) · "
-        "MIT License · v0.1.0"
+        "MIT License · v0.1.1 · "
+        "[Static demo](https://nikshaybisht.github.io/orbital-explorer/)"
     )
 
 

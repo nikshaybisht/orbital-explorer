@@ -1,4 +1,4 @@
-# Runtime dependencies for Orbital Explorer v0.1.0
+# Runtime dependencies for Orbital Explorer v0.1.1
 # Prefer:  pip install -e ".[all]"
 # Or:      pip install -r requirements.txt
 #

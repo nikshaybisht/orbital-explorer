@@ -1,0 +1,3 @@
+# Streamlit Community Cloud: system packages via apt (if needed).
+# RDKit currently installs from PyPI wheels on Linux, so this can stay empty.
+# Keep the file so Cloud deploy is explicit and future apt deps have a home.
